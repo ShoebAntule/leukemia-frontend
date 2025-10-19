@@ -5,7 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import { Paper, CardActionArea, CardMedia, Grid, TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Button, CircularProgress, Select, MenuItem, FormControl, InputLabel, Dialog, DialogTitle, DialogContent, DialogActions, Checkbox, List, ListItem, ListItemText, ListItemSecondaryAction } from "@material-ui/core";
 import { Clear } from '@material-ui/icons';
 import axios from "axios";
-import { DropzoneArea } from 'material-ui-dropzone';
+import { DropzoneArea } from 'react-dropzone';
 import Sidebar from '../common/Sidebar';
 import Topbar from '../common/Topbar';
 import { apiService } from '../../api/api';
