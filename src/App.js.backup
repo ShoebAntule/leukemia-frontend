@@ -1,0 +1,34 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { ImageUpload } from "./home.js";
+import UserDashboard from './components/Dashboard/UserDashboard';
+import DoctorDashboard from './components/Dashboard/DoctorDashboard';
+import Reports from './components/Dashboard/Reports';
+import Profile from './components/Dashboard/Profile';
+import ContactDoctor from './components/Dashboard/ContactDoctor';
+import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
+import './styles.css';
+
+function App() {
+  // Check if user is authenticated
+  const isAuthenticated = localStorage.getItem('token');
+
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" render={() => isAuthenticated ? <Redirect to="/dashboard" /> : <ImageUpload />} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path="/dashboard" component={UserDashboard} />
+        <Route path="/doctor-dashboard" component={DoctorDashboard} />
+        <Route path="/reports" component={Reports} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/contact" component={ContactDoctor} />
+        <Redirect to="/" />
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
